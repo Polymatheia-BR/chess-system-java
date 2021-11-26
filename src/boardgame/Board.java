@@ -6,18 +6,18 @@ public class Board {
 	private int columns;
 	private Piece[][] pieces;
 	
-	public Board(int row, int columns) {
-		this.rows = row;
+	public Board(int rows, int columns) {
+		this.rows = rows;
 		this.columns = columns;
 		pieces = new Piece[rows][columns];
 	}
 
-	public int getRow() {
+	public int getRows() {
 		return rows;
 	}
 
-	public void setRow(int row) {
-		this.rows = row;
+	public void setRows(int rows) {
+		this.rows = rows;
 	}
 
 	public int getColumns() {
@@ -34,5 +34,10 @@ public class Board {
 	
 	public Piece piece(Position position) {
 		return pieces[position.getRow()][position.getColumn()];
+	}
+	
+	public void placePiece(Piece piece, Position position) {
+		pieces[position.getRow()][position.getColumn()] = piece;
+		piece.position = position;
 	}
 }

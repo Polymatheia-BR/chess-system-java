@@ -92,10 +92,10 @@ public class UI {
 	}
 
 	private static void printPiece(ChessPiece piece, boolean background) {
-    	if(background) {
-    		System.out.print(ANSI_BLUE_BACKGROUND);
-    	}
-		if (piece == null) {
+		if (background) {
+			System.out.print(ANSI_BLUE_BACKGROUND);
+		}
+    	if (piece == null) {
             System.out.print("-" + ANSI_RESET);
         }
         else {
@@ -108,6 +108,7 @@ public class UI {
         }
         System.out.print(" ");
 	}
+	
 	private static void printCapturedPieces(List<ChessPiece> captured) {
 		List<ChessPiece> white = captured.parallelStream().filter(x -> x.getColor() == Color.WHITE).collect(Collectors.toList());
 		List<ChessPiece> black = captured.parallelStream().filter(x -> x.getColor() == Color.BLACK).collect(Collectors.toList());
